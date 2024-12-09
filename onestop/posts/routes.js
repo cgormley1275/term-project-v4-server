@@ -13,7 +13,7 @@ export default function PostsRoutes(app) {
     const updatePost = async (request, response) => { };
     const deletePost = async (request, response) => { };
 
-    const getAllPosts = async (_, response) => {
+    const getAllPosts = async (request, response) => {
         const posts = await dao.findAllPosts();
 
         return response.send(posts);
