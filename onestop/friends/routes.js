@@ -14,4 +14,11 @@ export default function FriendsRoutes(app) {
         return res.send(friend);
     };
     app.post("/api/friends/add", addFriend)
+
+    const findFriendsByUIDNoDetail = async (req, res) => {
+        const {uid} = req.params;
+        const friends = await dao.findFriendsByUIDNoDetail(uid);
+        return res.send(friends);
+    };
+    app.get("/api/friends/no_detail/:uid", findFriendsByUIDNoDetail);
 }

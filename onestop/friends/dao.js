@@ -8,3 +8,7 @@ export async function findFriendsByUID(uid) {
 export async function addFriend(user1, user2) {
     return model.create({user1:user1, user2:user2});
 }
+
+export async function findFriendsByUIDNoDetail(uid) {
+    return model.find({ user1:uid })
+}
