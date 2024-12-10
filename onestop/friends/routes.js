@@ -5,6 +5,13 @@ export default function FriendsRoutes(app) {
         const {uid} = req.params;
         const friends = await dao.findFriendsByUID(uid);
         return res.send(friends);
-    }
+    };
     app.get("/api/friends/:uid", findFriendsByUID);
+
+    const addFriend = async (req, res) => {
+        const {user1, user2} = req.body;
+        const friend = await dao.addFriend(user1, user2);
+        return res.send(friend);
+    };
+    app.post("/api/friends/add", addFriend)
 }
